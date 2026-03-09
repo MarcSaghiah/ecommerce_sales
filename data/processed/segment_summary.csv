@@ -1,7 +1,3 @@
-Segment,Customers,Total Revenue,Avg Revenue
-Champions,88,93625.94,1063.93
-Loyal Customers,77,33615.5,436.56
-At Risk,55,23119.53,420.36
-Lost,105,13336.37,127.01
-Potential Loyalists,90,11952.02,132.8
-New Customers,36,4849.7,134.71
+version https://git-lfs.github.com/spec/v1
+oid sha256:082174b03204c2e5ac8216905ebc991ec73eb952d25828723fe2929fd7040051
+size 236
