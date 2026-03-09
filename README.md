@@ -1,8 +1,14 @@
+
 # E-commerce Sales Dashboard
+
 
 **Analyze $9.7M in transactions to identify revenue drivers, seasonal patterns, and high-value customer segments for a UK online retailer.**
 
-![Dashboard Demo](docs/demo.gif)
+---
+
+**All code, analysis, and visualizations are original work unless otherwise noted.**
+
+---
 
 ---
 
@@ -30,9 +36,10 @@ streamlit run demo/app.py
 
 ---
 
+
 ## Business Problem
 
-A UK-based online gift retailer needs to understand their sales performance to make better inventory and marketing decisions. Specifically, they need answers to:
+As part of this project, I analyzed the sales performance of a UK-based online gift retailer to support better inventory and marketing decisions. Through my exploration, I focused on answering key business questions:
 
 1. **Revenue Trends:** Which months drive the most sales? Are there predictable patterns?
 2. **Geographic Performance:** Which countries are growing? Which are underperforming?
@@ -168,3 +175,9 @@ streamlit run demo/app.py       # Launch dashboard
 | Customer Retention Rate | 37% (repeat purchasers) |
 
 ---
+
+## Author
+
+Marc Saghiah  
+
+© 2026 Marc Saghiah. All rights reserved.
