@@ -18,7 +18,7 @@
 
 ```bash
 # Clone and setup
-git clone github.com/MarcSaghiah/ecommerce_sales.git
+git clone https://github.com/MarcSaghiah/ecommerce_sales.git
 cd ecommerce-sales
 pip install -r requirements.txt
 
