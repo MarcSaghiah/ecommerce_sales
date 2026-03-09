@@ -19,7 +19,7 @@
 ```bash
 # Clone and setup
 git clone github.com/MarcSaghiah/ecommerce_sales.git
-cd 01-ecommerce-sales-dashboard
+cd ecommerce-sales
 pip install -r requirements.txt
 
 # Run the dashboard
