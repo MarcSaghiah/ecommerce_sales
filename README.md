@@ -18,8 +18,8 @@
 
 ```bash
 # Clone and setup
-git clone <your-repo-url>
-cd 01-ecommerce-sales-dashboard
+git clone https://github.com/MarcSaghiah/ecommerce_sales.git
+cd ecommerce-sales
 pip install -r requirements.txt
 
 # Run the dashboard
