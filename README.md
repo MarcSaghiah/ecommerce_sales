@@ -1,103 +1,32 @@
-
 # E-commerce Sales Dashboard
 
+**Worked on:** Winter 2024
+
+**Stack:** _Python, Pandas, Plotly, Streamlit_
 
 **Analyze $9.7M in transactions to identify revenue drivers, seasonal patterns, and high-value customer segments for a UK online retailer.**
 
 ---
 
-**All code, analysis, and visualizations are original work unless otherwise noted.**
+## 🚀 Overview
+
+This project delivers an interactive **Streamlit dashboard** and reproducible analysis pipeline built on the Online Retail II dataset.
+
+It focuses on:
+
+- Revenue seasonality and trends
+- Geographic performance across countries
+- Product-level performance drivers
+- Customer segmentation (high-value customers, retention patterns)
+
+**Scope:** ~1.07M raw rows (cleaned to ~541K transactions) · 38 countries · 2009–2011.
 
 ---
 
----
-
-## TL;DR
-
-- **What:** Interactive sales dashboard analyzing 500K+ transactions across 38 countries
-- **Business Impact:** Identified that 20% of customers drive 80% of revenue; November sales spike 3x due to holiday shopping
-- **Stack:** Python, Pandas, Plotly, Streamlit
-
----
-
-## Quickstart
-
-```bash
-# Clone and setup
-git clone https://github.com/MarcSaghiah/ecommerce_sales.git
-cd ecommerce-sales
-pip install -r requirements.txt
-
-# Run the dashboard
-streamlit run demo/app.py
-```
-
-**Time to run:** Under 2 minutes
-
----
-
-
-## Business Problem
-
-As part of this project, I analyzed the sales performance of a UK-based online gift retailer to support better inventory and marketing decisions. Through my exploration, I focused on answering key business questions:
-
-1. **Revenue Trends:** Which months drive the most sales? Are there predictable patterns?
-2. **Geographic Performance:** Which countries are growing? Which are underperforming?
-3. **Product Analysis:** What are the top products? Which categories should be expanded?
-4. **Customer Value:** Who are the high-value customers? How can we retain them?
-
-Without these insights, the company risks overstocking unpopular items, missing seasonal opportunities, and losing high-value customers to competitors.
-
----
-
-## Dataset
-
-**Source:** [UCI Machine Learning Repository - Online Retail II](https://archive.ics.uci.edu/dataset/502/online+retail+ii)
-
-| Field | Description |
-|-------|-------------|
-| InvoiceNo | Unique transaction ID (prefix 'C' = cancellation) |
-| StockCode | Product code |
-| Description | Product name |
-| Quantity | Units purchased |
-| InvoiceDate | Transaction timestamp |
-| UnitPrice | Price per unit (GBP) |
-| CustomerID | Unique customer identifier |
-| Country | Customer location |
-
-**Size:** 1,067,371 transactions | 5,942 customers | 38 countries | Dec 2009 - Dec 2011
-
----
-
-## Key Insights
-
-### 1. Revenue is Highly Seasonal
-![Seasonal Trend](docs/img/seasonal_trend.png)
-
-November generates **1.5-3x average monthly revenue** due to holiday gift shopping. January shows a sharp drop as customers reduce spending post-holidays.
-
-**Recommendation:** Increase inventory by 40% in October; run clearance sales in January.
-
-### 2. The 80/20 Rule Applies
-![Customer Segments](docs/img/customer_segments.png)
-
-Top 20% of customers generate ~58-78% of revenue. These "Champions" have the highest lifetime value.
-
-**Recommendation:** Create a VIP loyalty program; prioritize retention over acquisition.
-
-### 3. UK Dominates, But Europe is Growing
-![Geographic Distribution](docs/img/geographic.png)
-
-UK accounts for ~82% of revenue. Germany, France, and EIRE are the top international markets.
-
-**Recommendation:** Invest in EU marketing; consider EU-based fulfillment center.
-
----
-
-## Project Structure
+## 📂 Project Structure
 
 ```
-01-ecommerce-sales-dashboard/
+ecommerce_sales/
 ├── data/
 │   ├── raw/                    # Original dataset (download instructions below)
 │   ├── processed/              # Cleaned data
@@ -123,27 +52,46 @@ UK accounts for ~82% of revenue. Germany, France, and EIRE are the top internati
 
 ---
 
-## How to Get the Data
+## ⚙️ Installation
 
-### Option 1: Download from UCI (Recommended)
-```bash
-# The dataset is available at:
-# https://archive.ics.uci.edu/dataset/502/online+retail+ii
-# Download and place in data/raw/online_retail_II.xlsx
-```
+1. Clone the repository:
 
-### Option 2: Use the Sample Data
-A pre-processed sample (10,000 rows) is included in `data/sample/` for quick testing.
+   ```bash
+   git clone https://github.com/MarcSaghiah/ecommerce_sales.git
+   cd ecommerce_sales
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+(Optional) Create and activate a virtual environment if you prefer isolated dependencies.
 
 ---
 
-## Reproduce the Analysis
+## 📊 Streamlit Dashboard
+
+Run the dashboard locally:
 
 ```bash
-# Full pipeline
-make reproduce
+streamlit run demo/app.py
+```
 
-# Or step by step:
+---
+
+## 🔄 Reproduce the Analysis
+
+Full pipeline:
+
+```bash
+make reproduce
+```
+
+Or step-by-step:
+
+```bash
 python src/preprocessing.py     # Clean raw data
 jupyter notebook notebooks/     # Run analysis notebooks
 streamlit run demo/app.py       # Launch dashboard
@@ -151,33 +99,60 @@ streamlit run demo/app.py       # Launch dashboard
 
 ---
 
-## Skills Demonstrated
+## 🗂️ Data
 
-- **SQL-equivalent operations** with Pandas (GROUP BY, JOINs, window functions)
-- **Data cleaning** (handling nulls, outliers, cancellations)
-- **Time series analysis** (seasonality, trends, YoY comparisons)
-- **Customer segmentation** (RFM analysis)
-- **Interactive visualization** (Plotly, Streamlit)
-- **Dashboard design** (KPI selection, visual hierarchy)
+### Dataset
+
+**Source:** Online Retail II (UCI Machine Learning Repository)
+
+The dataset includes:
+
+- Transaction-level purchases (quantity, unit price, date)
+- Product identifiers and descriptions
+- Customer IDs (often missing in raw data)
+- Customer country
+
+### How to get the data
+
+**Option 1 (Recommended): Download from UCI**
+
+- Download the dataset from UCI and place it in:
+  `data/raw/online_retail_II.xlsx`
+
+**Option 2: Use the sample data**
+
+- A small preprocessed sample is included under `data/sample/` for quick testing.
+
+> Tip: See `data/README.md` for detailed data documentation and cleaning notes.
 
 ---
 
-## Results Summary
+## 🏆 Key Insights
 
-| Metric | Value |
-|--------|-------|
-| Total Revenue | £9.75M |
-| Total Transactions | 541,909 |
-| Unique Customers | 5,942 |
-| Avg Order Value | £18.00 |
-| Top Country (non-UK) | Germany (£228K) |
-| Best Month | November 2011 (£1.46M) |
-| Customer Retention Rate | 37% (repeat purchasers) |
+### 1) Revenue is Highly Seasonal
+
+![Seasonal Trend](docs/img/seasonal_trend.png)
+
+November generates **1.5–3× average monthly revenue** due to holiday gift shopping. January shows a sharp drop post-holidays.
+
+**Recommendation:** Increase inventory in October; run clearance campaigns in January.
+
+### 2) The 80/20 Rule Applies
+
+![Customer Segments](docs/img/customer_segments.png)
+
+Top customers generate the majority of revenue (high-LTV “Champions”).
+
+**Recommendation:** Build a VIP program and prioritize retention.
+
+### 3) UK Dominates, But Europe is Growing
+
+![Geographic Distribution](docs/img/geographic.png)
+
+UK drives most revenue; Germany, France, and EIRE are leading international markets.
+
+**Recommendation:** Invest in EU marketing; consider EU-based fulfillment.
 
 ---
 
-## Author
-
-Marc Saghiah  
-
-© 2026 Marc Saghiah. All rights reserved.
+**Author: Marc Saghiah**
